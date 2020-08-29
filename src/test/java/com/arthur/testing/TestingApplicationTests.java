@@ -1,13 +1,14 @@
 package com.arthur.testing;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+import com.arthur.classes.TriangleUtils;
+
 class TestingApplicationTests {
 
 	@Test
-	void contextLoads() {
+	void t1() {
+		TriangleUtils.test();
 	}
 
 }
