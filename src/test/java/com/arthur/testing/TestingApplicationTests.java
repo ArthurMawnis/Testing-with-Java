@@ -15,7 +15,7 @@ class TestingApplicationTests {
 	private static final String SCALENE = "scalene";
 
 	@Test
-	void should_return_ISOSCELES_when_two_equals_sides() {
+	void should_return_isosceles_when_two_equals_sides() {
 		// Given two equals sides and a different one
 		final Float a = 7f;
 		final Float b = 7f;
@@ -37,7 +37,7 @@ class TestingApplicationTests {
 	}
 
 	@Test
-	void should_return_EQUILATERAL_when_all_equals_sides() {
+	void should_return_equilateral_when_all_equals_sides() {
 		// Given three equals sides
 		final Float a = 5f;
 		final Float b = a;
@@ -55,7 +55,7 @@ class TestingApplicationTests {
 	}
 
 	@Test
-	void should_return_SCALENE_when_all_different_sides() {
+	void should_return_scalene_when_all_different_sides() {
 		// Given three different sides
 		final Float a = 5f;
 		final Float b = 6f;
@@ -71,4 +71,49 @@ class TestingApplicationTests {
 		// Assert this is a scalene
 		Assertions.assertEquals(SCALENE, result);
 	}
+
+	@Test
+	void should_throw_exception_when_invalid_sizes_for_scalene() {
+	}
+
+	@Test
+	void should_throw_exception_when_invalid_sizes_for_isosceles() {
+	}
+
+	@Test
+	void should_return_isosceles_within_all_possible_permutations() {
+	}
+
+	@Test
+	void should_throw_exception_when_theres_a_side_equals_zero() {
+	}
+
+	@Test
+	void should_throw_exception_when_theres_a_negative_side() {
+	}
+
+	@Test
+	void should_throw_exception_when_sum_of_two_sides_equals_the_third_side() {
+	}
+
+	@Test
+	void should_throw_exception_when_sum_of_two_sides_equals_the_third_side_within_permutation() {
+	}
+
+	@Test
+	void should_throw_exception_when_sum_of_two_is_greater_than_third_side() {
+	}
+
+	@Test
+	void should_throw_exception_when_sum_of_two_is_greater_than_third_side_within_permutation() {
+	}
+
+	@Test
+	void should_throw_exception_when_all_sides_are_zero() {
+	}
+
+	@Test
+	void should_throw_exception_when_theres_not_three_input_number() {
+	}
+
 }
