@@ -74,6 +74,13 @@ class TestingApplicationTests {
 
 	@Test
 	void should_throw_exception_when_invalid_sizes_for_scalene() {
+		// Given three different sides that doesnt complete a triangle due to inequality
+		// theorem
+		final Float a = 16f;
+		final Float b = 22f;
+		final Float c = 40f;
+		
+		Assertions.assertThrows(NoPossibleTriangleException.class, () -> TriangleUtils.printTriangleType(a, b, c));
 	}
 
 	@Test
