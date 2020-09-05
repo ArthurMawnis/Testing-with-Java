@@ -58,9 +58,16 @@ public class TriangleUtils {
 	}
 
 	private static void checkOnlyValidSides(Float s1, Float s2, Float s3) throws NoPossibleTriangleException {
-		if(s1 <= 0 || s2 <= 0 || s3 <= 0)
+		if (!validPositiveInteger(s1) || !validPositiveInteger(s2) || !validPositiveInteger(s3))
 			throw new NoPossibleTriangleException();
-		
+
+	}
+
+	private static boolean validPositiveInteger(Float n) {
+		if (n != null) {
+			return n > 0;
+		}
+		return false;
 	}
 
 	private static boolean assertInequality(final Float s1, final Float s2, final Float s3) {
