@@ -89,12 +89,28 @@ class TestingApplicationTests {
 		final Float a = 10f;
 		final Float b = 10f;
 		final Float c = 21f;
-		//21 > 10 + 10
+		// 21 > 10 + 10
 		Assertions.assertThrows(NoPossibleTriangleException.class, () -> TriangleUtils.printTriangleType(a, b, c));
 	}
 
 	@Test
 	void should_return_isosceles_within_all_possible_permutations() {
+		final Float a = 7f;
+		final Float b = 7f;
+		final Float c = 6f;
+
+		// Assert this is a isosceles
+		try {
+			Assertions.assertEquals(ISOSCELES, TriangleUtils.printTriangleType(a, b, c));
+			Assertions.assertEquals(ISOSCELES, TriangleUtils.printTriangleType(a, c, b));
+			Assertions.assertEquals(ISOSCELES, TriangleUtils.printTriangleType(b, a, c));
+			Assertions.assertEquals(ISOSCELES, TriangleUtils.printTriangleType(b, c, c));
+			Assertions.assertEquals(ISOSCELES, TriangleUtils.printTriangleType(c, a, b));
+			Assertions.assertEquals(ISOSCELES, TriangleUtils.printTriangleType(c, b, a));
+		} catch (NoPossibleTriangleException e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
 	}
 
 	@Test
