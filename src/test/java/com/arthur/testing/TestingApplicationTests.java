@@ -180,6 +180,11 @@ class TestingApplicationTests {
 
 	@Test
 	void should_throw_exception_when_all_sides_are_zero() {
+		final Float a = 0f;
+		final Float b = 0f;
+		final Float c = 0f;
+		//not equilateral!!!
+		Assertions.assertThrows(NoPossibleTriangleException.class, () -> TriangleUtils.printTriangleType(a, b, c));
 	}
 
 	@Test
