@@ -133,6 +133,12 @@ class TestingApplicationTests {
 
 	@Test
 	void should_throw_exception_when_sum_of_two_sides_equals_the_third_side() {
+		// longest side is always shorter than the sum of the other two.
+		final Float a = 10f;
+		final Float b = 10f;
+		final Float c = 20f;
+	
+		Assertions.assertThrows(NoPossibleTriangleException.class, () -> TriangleUtils.printTriangleType(a, b, c));
 	}
 
 	@Test
