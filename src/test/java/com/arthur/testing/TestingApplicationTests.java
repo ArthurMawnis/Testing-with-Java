@@ -157,6 +157,11 @@ class TestingApplicationTests {
 
 	@Test
 	void should_throw_exception_when_sum_of_two_is_greater_than_third_side() {
+		final Float a = 1f;
+		final Float b = 2f;
+		final Float c = 4f;
+
+		Assertions.assertThrows(NoPossibleTriangleException.class, () -> TriangleUtils.printTriangleType(a, b, c));
 	}
 
 	@Test
