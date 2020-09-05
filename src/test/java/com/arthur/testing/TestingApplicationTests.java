@@ -137,12 +137,22 @@ class TestingApplicationTests {
 		final Float a = 10f;
 		final Float b = 10f;
 		final Float c = 20f;
-	
+
 		Assertions.assertThrows(NoPossibleTriangleException.class, () -> TriangleUtils.printTriangleType(a, b, c));
 	}
 
 	@Test
 	void should_throw_exception_when_sum_of_two_sides_equals_the_third_side_within_permutation() {
+		final Float a = 10f;
+		final Float b = 10f;
+		final Float c = 20f;
+
+		Assertions.assertThrows(NoPossibleTriangleException.class, () -> TriangleUtils.printTriangleType(a, b, c));
+		Assertions.assertThrows(NoPossibleTriangleException.class, () -> TriangleUtils.printTriangleType(a, c, b));
+		Assertions.assertThrows(NoPossibleTriangleException.class, () -> TriangleUtils.printTriangleType(b, a, c));
+		Assertions.assertThrows(NoPossibleTriangleException.class, () -> TriangleUtils.printTriangleType(b, c, c));
+		Assertions.assertThrows(NoPossibleTriangleException.class, () -> TriangleUtils.printTriangleType(c, a, b));
+		Assertions.assertThrows(NoPossibleTriangleException.class, () -> TriangleUtils.printTriangleType(c, b, a));
 	}
 
 	@Test
