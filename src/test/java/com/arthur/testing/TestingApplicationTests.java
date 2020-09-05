@@ -104,7 +104,7 @@ class TestingApplicationTests {
 			Assertions.assertEquals(ISOSCELES, TriangleUtils.printTriangleType(a, b, c));
 			Assertions.assertEquals(ISOSCELES, TriangleUtils.printTriangleType(a, c, b));
 			Assertions.assertEquals(ISOSCELES, TriangleUtils.printTriangleType(b, a, c));
-			Assertions.assertEquals(ISOSCELES, TriangleUtils.printTriangleType(b, c, c));
+			Assertions.assertEquals(ISOSCELES, TriangleUtils.printTriangleType(b, c, a));
 			Assertions.assertEquals(ISOSCELES, TriangleUtils.printTriangleType(c, a, b));
 			Assertions.assertEquals(ISOSCELES, TriangleUtils.printTriangleType(c, b, a));
 		} catch (NoPossibleTriangleException e) {
@@ -150,7 +150,7 @@ class TestingApplicationTests {
 		Assertions.assertThrows(NoPossibleTriangleException.class, () -> TriangleUtils.printTriangleType(a, b, c));
 		Assertions.assertThrows(NoPossibleTriangleException.class, () -> TriangleUtils.printTriangleType(a, c, b));
 		Assertions.assertThrows(NoPossibleTriangleException.class, () -> TriangleUtils.printTriangleType(b, a, c));
-		Assertions.assertThrows(NoPossibleTriangleException.class, () -> TriangleUtils.printTriangleType(b, c, c));
+		Assertions.assertThrows(NoPossibleTriangleException.class, () -> TriangleUtils.printTriangleType(b, c, a));
 		Assertions.assertThrows(NoPossibleTriangleException.class, () -> TriangleUtils.printTriangleType(c, a, b));
 		Assertions.assertThrows(NoPossibleTriangleException.class, () -> TriangleUtils.printTriangleType(c, b, a));
 	}
