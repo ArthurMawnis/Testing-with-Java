@@ -189,6 +189,11 @@ class TestingApplicationTests {
 
 	@Test
 	void should_throw_exception_when_theres_not_three_input_number() {
+		final Float a = null;
+		final Float b = 2f;
+		final Float c = 4f;
+
+		Assertions.assertThrows(NoPossibleTriangleException.class, () -> TriangleUtils.printTriangleType(a, b, c));
 	}
 
 }
