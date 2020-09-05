@@ -79,12 +79,18 @@ class TestingApplicationTests {
 		final Float a = 16f;
 		final Float b = 22f;
 		final Float c = 40f;
-		
+
 		Assertions.assertThrows(NoPossibleTriangleException.class, () -> TriangleUtils.printTriangleType(a, b, c));
 	}
 
 	@Test
 	void should_throw_exception_when_invalid_sizes_for_isosceles() {
+		// longest side is always shorter than the sum of the other two.
+		final Float a = 10f;
+		final Float b = 10f;
+		final Float c = 21f;
+		//21 > 10 + 10
+		Assertions.assertThrows(NoPossibleTriangleException.class, () -> TriangleUtils.printTriangleType(a, b, c));
 	}
 
 	@Test
