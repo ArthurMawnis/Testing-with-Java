@@ -29,6 +29,8 @@ public class TriangleUtils {
 	 */
 	public static String printTriangleType(final Float s1, final Float s2, final Float s3)
 			throws NoPossibleTriangleException {
+		checkOnlyValidSides(s1, s2, s3);
+
 		if (s1.equals(s2) && s2.equals(s3)) {
 			System.out.println(EQUILATERAL);
 			return EQUILATERAL;
@@ -53,6 +55,12 @@ public class TriangleUtils {
 		}
 
 		throw new NoPossibleTriangleException();
+	}
+
+	private static void checkOnlyValidSides(Float s1, Float s2, Float s3) throws NoPossibleTriangleException {
+		if(s1 <= 0 || s2 <= 0 || s3 <= 0)
+			throw new NoPossibleTriangleException();
+		
 	}
 
 	private static boolean assertInequality(final Float s1, final Float s2, final Float s3) {
