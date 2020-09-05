@@ -115,6 +115,11 @@ class TestingApplicationTests {
 
 	@Test
 	void should_throw_exception_when_theres_a_side_equals_zero() {
+		final Float a = 0f;
+		final Float b = 10f;
+		final Float c = 7f;
+
+		Assertions.assertThrows(NoPossibleTriangleException.class, () -> TriangleUtils.printTriangleType(a, b, c));
 	}
 
 	@Test
