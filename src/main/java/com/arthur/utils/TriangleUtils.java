@@ -41,12 +41,26 @@ public class TriangleUtils {
 		return SCALENE;
 	}
 
+	/**
+	 * Check if all sides are positive non-zero numbers
+	 * 
+	 * @param ab
+	 * @param bc
+	 * @param ca
+	 * @throws NoPossibleTriangleException
+	 */
 	private static void checkOnlyValidSides(Float ab, Float bc, Float ca) throws NoPossibleTriangleException {
 		if (!validPositiveInteger(ab) || !validPositiveInteger(bc) || !validPositiveInteger(ca))
 			throw new NoPossibleTriangleException();
 
 	}
 
+	/**
+	 * Check if a given number N is a non-zero positive number
+	 * 
+	 * @param n
+	 * @return
+	 */
 	private static boolean validPositiveInteger(Float n) {
 		if (n != null) {
 			return n > 0;
@@ -54,6 +68,14 @@ public class TriangleUtils {
 		return false;
 	}
 
+	/**
+	 * Check if the given fall into triangle inequality theorem
+	 * 
+	 * @param ab
+	 * @param bc
+	 * @param ca
+	 * @throws NoPossibleTriangleException
+	 */
 	private static void assertInequality(final Float ab, final Float bc, final Float ca)
 			throws NoPossibleTriangleException {
 		boolean a = ab < bc + ca;
