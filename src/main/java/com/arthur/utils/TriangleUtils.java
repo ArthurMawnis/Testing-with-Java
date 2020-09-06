@@ -50,7 +50,7 @@ public class TriangleUtils {
 	 * @throws NoPossibleTriangleException
 	 */
 	private static void checkOnlyValidSides(Float ab, Float bc, Float ca) throws NoPossibleTriangleException {
-		if (!validPositiveInteger(ab) || !validPositiveInteger(bc) || !validPositiveInteger(ca))
+		if (!validPositiveNumber(ab) || !validPositiveNumber(bc) || !validPositiveNumber(ca))
 			throw new NoPossibleTriangleException();
 
 	}
@@ -61,7 +61,7 @@ public class TriangleUtils {
 	 * @param n
 	 * @return
 	 */
-	private static boolean validPositiveInteger(Float n) {
+	private static boolean validPositiveNumber(Float n) {
 		if (n != null) {
 			return n > 0;
 		}
