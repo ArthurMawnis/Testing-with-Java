@@ -27,27 +27,27 @@ public class TriangleUtils {
 	 * @return Triangle type
 	 * @throws NoPossibleTriangleException
 	 */
-	public static String printTriangleType(final Float s1, final Float s2, final Float s3)
+	public static String printTriangleType(final Float ab, final Float bc, final Float ca)
 			throws NoPossibleTriangleException {
-		checkOnlyValidSides(s1, s2, s3);
+		checkOnlyValidSides(ab, bc, ca);
 
-		if (s1.equals(s2) && s2.equals(s3)) {
+		if (ab.equals(bc) && bc.equals(ca)) {
 			System.out.println(EQUILATERAL);
 			return EQUILATERAL;
 		}
 
-		if ((s1.equals(s2) && !s1.equals(s3)) || (s1.equals(s3) && !s1.equals(s2))
-				|| (s2.equals(s3) && !s1.equals(s2))) {
+		if ((ab.equals(bc) && !ab.equals(ca)) || (ab.equals(ca) && !ab.equals(bc))
+				|| (bc.equals(ca) && !ab.equals(bc))) {
 
-			if (!assertInequality(s1, s2, s3))
+			if (!assertInequality(ab, bc, ca))
 				throw new NoPossibleTriangleException();
 
 			System.out.println(ISOSCELES);
 			return ISOSCELES;
 		}
 
-		if (!s1.equals(s2) && !s1.equals(s3) && !s2.equals(s3)) {
-			if (!assertInequality(s1, s2, s3))
+		if (!ab.equals(bc) && !ab.equals(ca) && !bc.equals(ca)) {
+			if (!assertInequality(ab, bc, ca))
 				throw new NoPossibleTriangleException();
 
 			System.out.println(SCALENE);
@@ -57,8 +57,8 @@ public class TriangleUtils {
 		throw new NoPossibleTriangleException();
 	}
 
-	private static void checkOnlyValidSides(Float s1, Float s2, Float s3) throws NoPossibleTriangleException {
-		if (!validPositiveInteger(s1) || !validPositiveInteger(s2) || !validPositiveInteger(s3))
+	private static void checkOnlyValidSides(Float ab, Float bc, Float ca) throws NoPossibleTriangleException {
+		if (!validPositiveInteger(ab) || !validPositiveInteger(bc) || !validPositiveInteger(ca))
 			throw new NoPossibleTriangleException();
 
 	}
@@ -70,10 +70,10 @@ public class TriangleUtils {
 		return false;
 	}
 
-	private static boolean assertInequality(final Float s1, final Float s2, final Float s3) {
-		boolean a = s1 < s2 + s3;
-		boolean b = s2 < s1 + s3;
-		boolean c = s3 < s1 + s2;
+	private static boolean assertInequality(final Float ab, final Float bc, final Float ca) {
+		boolean a = ab < bc + ca;
+		boolean b = bc < ab + ca;
+		boolean c = ca < ab + bc;
 
 		return a && b && c;
 	}
