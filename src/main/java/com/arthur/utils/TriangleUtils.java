@@ -35,16 +35,13 @@ public class TriangleUtils {
 		}
 
 		if (ab.equals(bc) && bc.equals(ca)) {
-			System.out.println(EQUILATERAL);
 			return EQUILATERAL;
 		}
 
 		if ((ab.equals(bc)) || (ab.equals(ca)) || (bc.equals(ca))) {
-			System.out.println(ISOSCELES);
 			return ISOSCELES;
 		}
 
-		System.out.println(SCALENE);
 		return SCALENE;
 	}
 
