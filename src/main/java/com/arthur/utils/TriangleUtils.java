@@ -30,31 +30,22 @@ public class TriangleUtils {
 	public static String printTriangleType(final Float ab, final Float bc, final Float ca)
 			throws NoPossibleTriangleException {
 		checkOnlyValidSides(ab, bc, ca);
+		if (!assertInequality(ab, bc, ca)) {
+			throw new NoPossibleTriangleException();
+		}
 
 		if (ab.equals(bc) && bc.equals(ca)) {
 			System.out.println(EQUILATERAL);
 			return EQUILATERAL;
 		}
 
-		if ((ab.equals(bc) && !ab.equals(ca)) || (ab.equals(ca) && !ab.equals(bc))
-				|| (bc.equals(ca) && !ab.equals(bc))) {
-
-			if (!assertInequality(ab, bc, ca))
-				throw new NoPossibleTriangleException();
-
+		if ((ab.equals(bc)) || (ab.equals(ca)) || (bc.equals(ca))) {
 			System.out.println(ISOSCELES);
 			return ISOSCELES;
 		}
 
-		if (!ab.equals(bc) && !ab.equals(ca) && !bc.equals(ca)) {
-			if (!assertInequality(ab, bc, ca))
-				throw new NoPossibleTriangleException();
-
-			System.out.println(SCALENE);
-			return SCALENE;
-		}
-
-		throw new NoPossibleTriangleException();
+		System.out.println(SCALENE);
+		return SCALENE;
 	}
 
 	private static void checkOnlyValidSides(Float ab, Float bc, Float ca) throws NoPossibleTriangleException {
