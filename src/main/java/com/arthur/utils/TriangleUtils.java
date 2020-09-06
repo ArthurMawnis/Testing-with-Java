@@ -30,17 +30,13 @@ public class TriangleUtils {
 	public static String printTriangleType(final Float ab, final Float bc, final Float ca)
 			throws NoPossibleTriangleException {
 		checkOnlyValidSides(ab, bc, ca);
-		if (!assertInequality(ab, bc, ca)) {
-			throw new NoPossibleTriangleException();
-		}
+		assertInequality(ab, bc, ca);
 
-		if (ab.equals(bc) && bc.equals(ca)) {
+		if (ab.equals(bc) && bc.equals(ca))
 			return EQUILATERAL;
-		}
 
-		if ((ab.equals(bc)) || (ab.equals(ca)) || (bc.equals(ca))) {
+		if ((ab.equals(bc)) || (ab.equals(ca)) || (bc.equals(ca)))
 			return ISOSCELES;
-		}
 
 		return SCALENE;
 	}
@@ -58,11 +54,14 @@ public class TriangleUtils {
 		return false;
 	}
 
-	private static boolean assertInequality(final Float ab, final Float bc, final Float ca) {
+	private static void assertInequality(final Float ab, final Float bc, final Float ca)
+			throws NoPossibleTriangleException {
 		boolean a = ab < bc + ca;
 		boolean b = bc < ab + ca;
 		boolean c = ca < ab + bc;
 
-		return a && b && c;
+		if (!(a && b && c)) {
+			throw new NoPossibleTriangleException();
+		}
 	}
 }
